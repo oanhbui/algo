@@ -17,3 +17,20 @@ class Solution:
             left += 1
             right -= 1
         return ''.join(list_of_s)
+
+
+
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        sList = list(s)
+        sVowels = []
+        for ch in sList:
+            if ch in vowels:
+                sVowels.append(ch)
+        index = 0
+        for k in range(len(sList) - 1, -1, -1):
+            if sList[k] in vowels:
+                sList[k] = sVowels[index]
+                index += 1
+        return ''.join(sList)
