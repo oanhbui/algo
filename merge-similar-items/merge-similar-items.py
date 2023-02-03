@@ -1,5 +1,6 @@
 #https://leetcode.com/problems/merge-similar-items/
 
+#Solution1
 class Solution(object):
     def mergeSimilarItems(self, items1, items2):
         """
@@ -18,3 +19,15 @@ class Solution(object):
                 result.append([value, weight])
         return sorted(result)
             
+#Solution2 using Map()
+class Solution:
+    def mergeSimilarItems(self, items1: List[List[int]], items2: List[List[int]]) -> List[List[int]]:
+        weights = {}
+        for value, weight in items1 + items2:
+            if value not in weights:
+                weights[value] = weight
+            else:
+                weights[value] += weight    
+        return sorted(list(weights.items()))
+
+
