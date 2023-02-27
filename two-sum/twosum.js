@@ -39,3 +39,21 @@ export function twoSumHashmap(nums, target) {
     }
     return [-1, -1]
 }
+
+
+/*Two pointers*/
+var twoSum = function(nums, target) {
+    const sortedNums = nums.map((item,index) => [item, index]).sort((a, b) => a[0] - b[0]);
+    console.log(sortedNums)
+    let l = 0;
+    let r = nums.length - 1;
+    while (l < r) {
+        if (sortedNums[l][0] + sortedNums[r][0] > target) {
+            r -= 1
+        } else if (sortedNums[l][0] + sortedNums[r][0] < target) {
+            l += 1
+        } else {
+            return [sortedNums[l][1], sortedNums[r][1]]
+        }
+    }
+};
