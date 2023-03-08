@@ -48,3 +48,20 @@ var isSubsequence = function(s, t) {
     };
     return true;
 };
+
+//*3 (2 pointers)
+var isSubsequence = function(s, t) {
+    let tIndex = 0;
+    let sIndex = 0;
+    while (tIndex < t.length && sIndex < s.length) {
+        if(t[tIndex] === s[sIndex]) {
+            sIndex += 1;
+        }
+        tIndex += 1;
+    };
+    if (sIndex >= s.length) {
+        return true
+    } else {
+        return false
+    }
+};
