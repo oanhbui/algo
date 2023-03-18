@@ -15,3 +15,11 @@ class Solution:
                 return [sorted_nums[l][1], sorted_nums[r][1]]
                 
         return [-1, -1]
+
+#Using Map()
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+        for i in range(0, len(nums)):
+            if (target - nums[i]) in seen:
+                return [seen[target - nums[i]], i]
+            seen[nums[i]] = i
