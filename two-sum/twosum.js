@@ -57,3 +57,14 @@ var twoSum = function(nums, target) {
         }
     }
 };
+
+/**Using Map() */
+var twoSum = function(nums, target) {
+    const model = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        if (model.has(target - nums[i])) {
+            return [i, model.get(target - nums[i])]
+        }
+        model.set(nums[i], i);
+    }
+};
