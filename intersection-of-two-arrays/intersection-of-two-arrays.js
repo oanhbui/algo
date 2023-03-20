@@ -14,4 +14,14 @@ var intersection = function(nums1, nums2) {
     return result
 };
 
-
+//*2
+var intersection = function(nums1, nums2) {
+    const seen = new Set(nums1);
+    let result = new Set();
+    for (const num of nums2) {
+        if (seen.has(num)) {
+            result.add(num)
+        }
+    };
+    return [...result]
+};
