@@ -15,3 +15,17 @@ function lonelyinteger(a) {
         }
     }
 }
+
+//2 using Set()
+function lonelyinteger(a) {
+    // Write your code here
+    const seen = new Set();
+    for (let i = 0; i < a.length; i++) {
+        if (seen.has(a[i])) {
+            seen.delete(a[i])
+        } else {
+            seen.add(a[i])
+        }
+    };
+    return [...seen.values()][0]
+}
