@@ -1,5 +1,6 @@
 //hackerRank Drawing Book
 
+//1
 function pageCount(n, p) {
     // Write your code here
     const totalFlip = Math.floor(n / 2);
@@ -17,4 +18,14 @@ function pageCount(n, p) {
             }
         }
     }
+}
+
+
+//2
+function pageCount(n, p) {
+    // Write your code here
+    const totalFlip = Math.floor(n / 2);
+    const frontFlip = Math.floor(p / 2);
+    const backFlip = totalFlip - frontFlip;
+    return Math.min(frontFlip, backFlip)
 }
