@@ -21,4 +21,25 @@ function pickingNumbers(a) {
         maxLength = Math.max(counter.get(key), maxLength)
     };
     return maxLength
+};
+
+
+//2 O(nlogn) 
+function pickingNumbers(a) {
+    // Write your code here
+    a.sort((a, b) => a - b);
+    let maxLength = 0;
+    let length = 1;
+    let lastNum = a[0];
+    for (let i = 1; i < a.length; i++) {
+        if (a[i] - lastNum <= 1) {
+            length += 1;
+            lastNum = Math.min(a[i], lastNum)
+        } else {
+            length = 1;
+            lastNum = a[i]
+        };
+        maxLength = Math.max(maxLength, length)
+    };
+    return maxLength
 }
