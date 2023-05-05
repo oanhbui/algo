@@ -16,3 +16,17 @@ function rotateLeft(d, arr) {
     flip(arr, 0, arr.length - 1);
     return arr
 }
+
+
+//#2
+function rotateLeft(d, arr) {
+    // Write your code here
+    const rotated = [];
+    for (let i = d; i < arr.length; i++) {
+        rotated.push(arr[i])
+    };
+    for (let j = 0; j < d; j++) {
+        rotated.push(arr[j])
+    };
+    return rotated
+}
