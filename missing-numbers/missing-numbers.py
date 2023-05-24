@@ -20,3 +20,13 @@ def missingNumbers(arr, brr):
         if value > 0:
             result.append(key)
     return sorted(result)
+
+
+#2
+
+from collections import Counter
+
+def missingNumbers(arr, brr):
+    b_counter = Counter(brr)
+    a_counter = Counter(arr)
+    return sorted((b_counter - a_counter).keys())
