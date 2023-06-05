@@ -7,7 +7,7 @@
 # [4,3,2,1,0,1,1,0,0,1,2]
 import math
 
-    #1 Brute Force
+    #2
 def closest_tower(s):
     tower_position = []
     for i in range(len(s)):    
@@ -16,15 +16,24 @@ def closest_tower(s):
     if len(tower_position) < 1:
         return [-1] * len(s)
     result = [0] * len(s) 
-    for j in range(len(s)):  #On
-        if j < tower_position[0]:
-            result[j] = tower_position[0] - j
-        elif j > tower_position[-1]:
-            result[j] = j - tower_position[-1]
+    # # for j in range(len(s)):  #On
+    # #     if j < tower_position[0]:
+    # #         result[j] = tower_position[0] - j
+    # #     elif j > tower_position[-1]:
+    # #         result[j] = j - tower_position[-1]
+    # #     else:
+    # #         for k in range(len(tower_position) - 1):
+    # #             if abs(tower_position[k] - tower_position[k + 1]) > 1 and s[j] != 1:
+    # #                 result[j] = min(j - tower_position[k], tower_position[k + 1] - j)
+    # # return result
+    current = 0
+    for j in range(len(s)):
+        if j > tower_position[current] and current != len(tower_position) - 1:
+            current += 1
+        if current > 0:
+            result[j] = min(j - tower_position[current - 1], abs(tower_position[current] - j))
         else:
-            for k in range(len(tower_position) - 1):
-                if abs(tower_position[k] - tower_position[k + 1]) > 1 and s[j] != 1:
-                    result[j] = min(j - tower_position[k], tower_position[k + 1] - j)
+            result[j] = abs(tower_position[current] - j)
     return result
 
 
