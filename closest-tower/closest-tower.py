@@ -8,6 +8,7 @@
 import math
 
     #1 Brute Force
+def closest_tower(s):
     tower_position = []
     for i in range(len(s)):    
         if s[i] == 1:
