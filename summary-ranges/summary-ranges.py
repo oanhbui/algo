@@ -43,3 +43,29 @@ def summaryRanges(self, nums: List[int]) -> List[str]:
             else:
                 result.append(f"{start}")
         return result
+
+#3
+
+class Solution:
+    def convert_output(self, start, end):
+        if end is not None:
+            return f"{start}->{end}"
+        else:
+            return f"{start}"
+
+
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        result = []
+        start, end = None, None
+        for i in range(len(nums)):
+            if start is None:
+                start = nums[i]
+            elif nums[i] - nums[i - 1] == 1:
+                end = nums[i]
+            else:
+                result.append(self.convert_output(start, end))
+                start = nums[i]
+                end = None
+        if start is not None:
+            result.append(self.convert_output(start, end))
+        return result
