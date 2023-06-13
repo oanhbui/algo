@@ -19,3 +19,27 @@ class Solution:
             else:
                 result[i] = f"{result[i][0]}->{result[i][-1]}"
         return result
+    
+#2
+
+def summaryRanges(self, nums: List[int]) -> List[str]:
+        result = []
+        start, end = None, None
+        for i in range(len(nums)):
+            if start is None:
+                start = nums[i]
+            elif nums[i] - nums[i - 1] == 1:
+                end = nums[i]
+            else:
+                if end is not None:
+                    result.append(f"{start}->{end}")
+                else:
+                    result.append(f"{start}")
+                start = nums[i]
+                end = None
+        if start is not None:
+            if end is not None:
+                result.append(f"{start}->{end}")
+            else:
+                result.append(f"{start}")
+        return result
