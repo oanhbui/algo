@@ -69,3 +69,23 @@ class Solution:
         if start is not None:
             result.append(self.convert_output(start, end))
         return result
+    
+#4
+
+class Solution:
+
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        result = []
+        start = 0
+        i = 0
+        n = len(nums)
+        while i < n:
+            start = nums[i]
+            while i + 1 < n and nums[i + 1] - nums[i] == 1:
+                i += 1
+            if nums[i] == start:
+                result.append(f"{nums[i]}")
+            else:
+                result.append(f"{start}->{nums[i]}")
+            i += 1
+        return result
