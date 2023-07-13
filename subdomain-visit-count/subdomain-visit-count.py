@@ -17,6 +17,7 @@ class Solution:
                 i += 1
         result = []
         for domain, count in lookup.items():
-            pair = " ".join([str(count), domain])
+            #pair = " ".join([str(count), domain])
+            pair = f"{count} {domain}"
             result.append(pair)
         return result
